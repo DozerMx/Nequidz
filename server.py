@@ -2,23 +2,29 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# Ruta para verificar el ID y la contraseña
+# Ruta para verificar usuario
 @app.route('/api/verify_user', methods=['POST'])
 def verify_user():
     data = request.get_json()
-    user_id = data.get('id')
+    id = data.get('id')
     password = data.get('password')
 
+    if not id or not password:
+        return jsonify({'valid': False}), 400
+
+    # Leer el archivo de registros y verificar el ID y la contraseña
     try:
-        # Lee el archivo registros.txt
-        with open('/storage/emulated/0/Nequi/registros.txt', 'r') as file:
-            for line in file:
-                stored_id, stored_password = line.strip().split(',')
-                if stored_id == user_id and stored_password == password:
-                    return jsonify(valid=True)
-        return jsonify(valid=False)
-    except Exception as e:
-        return jsonify(valid=False, error=str(e))
+        with open('registros.txt', 'r') as file:
+            lines = file.readlines()
+            for line in lines:
+                file_id, file_password = line.strip().split(',')
+                if file_id == id and file_password == password:
+                    return jsonify({'valid': True})
+
+    except FileNotFoundError:
+        return jsonify({'valid': False}), 500
+
+    return jsonify({'valid': False})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(port=5000)
