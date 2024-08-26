@@ -1,0 +1,199 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow: hidden;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Imagen superior */
+.top-image {
+    position: relative;
+    right: 32px;
+    top: 20px;
+    width: 120%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contenido del comprobante */
+#content {
+    background-color: #fff;
+    box-shadow: none;
+    border: none;
+    padding: 20px;
+    margin: 0;
+    max-width: 400px;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 800px;
+}
+
+.status {
+    margin-bottom: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.status img {
+    margin-left: -20px;
+}
+
+.detail {
+    margin-bottom: 10px;
+    color: #1c031d;
+    font-weight: 400;
+}
+
+.detail span {
+    display: block;
+    font-weight: 400;
+}
+
+.reference {
+    margin-top: 20px;
+    padding-top: 10px;
+    color: #1c031d;
+    font-weight: 400;
+}
+
+.account-balance {
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 400px;
+    height: 55px;
+    box-sizing: border-box;
+}
+
+.account-balance img {
+    width: 50px;
+    height: auto;
+    margin-right: 5px;
+    margin-left: -12px;
+}
+
+.account-balancel {
+    margin-left: -1px;
+}
+
+.account-balance .amount {
+    font-weight: 300;
+    display: block;
+    color: #707070;
+    font-size: 14px;
+}
+
+.account-balance .amount small {
+    font-size: 0.8em;
+}
+
+.problem-link {
+    display: block;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.problem-link img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+/* Estilos para la página de login */
+.key-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 300px;
+}
+
+.key-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+.key-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.key-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.key-container button:hover {
+    background-color: #0056b3;
+}
+
+.key-container p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
+/* Estilo de la etiqueta "¿De dónde salió la plata?" */
+.plata-label {
+    color: #707070;
+    font-weight: 400;
+    margin-top: 17px;
+}
+
+.dispo {  margin-left: -1px;
+    
+}

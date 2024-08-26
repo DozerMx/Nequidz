@@ -1,0 +1,61 @@
+/* Fondo de la página de generación de comprobante */
+body
+
+#inicio {
+    
+    background-image: url('https://i.postimg.cc/Hk3dQxZb/20240823-032132.jpg');
+    background-size: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* La imagen de fondo se mantiene fija cuando se desplaza la página */
+    color: #7fb3d5;
+    padding: 20;
+    min-height: 200vh;
+    
+}
+
+/* Estilo para el contenedor del formulario para que no tenga fondo o borde */
+.container {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    padding: 30px; /* Espaciado interno para el formulario */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño del contenedor */
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"], input[type="tel"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #1b2631;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto cuando el campo está enfocado */
+input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus {
+    border-color: #1b2631;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+    outline: none;
+}
+
+/* Estilo para el botón */
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #1b2631;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Efecto cuando se pasa el mouse por encima del botón */
+button[type="submit"]:hover {
+    background-color: #5548c8;
+}
