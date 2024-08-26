@@ -1,3 +1,2 @@
-ID: 3001788752, Contraseña: Yeison_30
-ID: /generar@NequiDz_bot, Contraseña: 2
-ID: 3001788752, Contraseña: 1234
+id1,contraseña1
+id2,contraseña2
