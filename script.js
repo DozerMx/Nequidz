@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const key = keyInput.value;
 
         try {
-            const response = await fetch('http://localhost:5000/api/verify_user', { // Cambia 'localhost' al dominio de tu servidor si es necesario
+            const response = await fetch('http://localhost:5000/api/verify_user', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
