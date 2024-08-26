@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const key = keyInput.value;
 
         try {
-            const response = await fetch('http://localhost:5000/api/verify_user', { 
+            const response = await fetch('http://tu-tunel-url:5000/api/verify_user', { // Cambia 'tu-tunel-url' por tu URL de tunelización
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
