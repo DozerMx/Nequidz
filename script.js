@@ -5,32 +5,39 @@ document.addEventListener("DOMContentLoaded", function() {
     const keyInput = document.getElementById("key-input");
     const keySubmit = document.getElementById("key-submit");
 
-    keySubmit.addEventListener("click", async function() {
+    keySubmit.addEventListener("click", function() {
         const id = idInput.value;
         const key = keyInput.value;
 
-        try {
-            const response = await fetch('http://tu-tunel-url:5000/api/verify_user', { // Cambia 'tu-tunel-url' por tu URL de tunelización
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: id, password: key })
-            });
-            const result = await response.json();
+        // Leer el archivo registros.txt
+        fetch('registros.txt')
+            .then(response => response.text())
+            .then(text => {
+                const lines = text.trim().split('\n');
+                let valid = false;
 
-            if (result.valid) {
-                keyContainer.style.display = "none";
-                inicioContainer.style.display = "block";
-            } else {
-                alert("🤬¡ID o contraseña incorrectos!〽️");
-            }
-        } catch (error) {
-            console.error("Error al verificar el ID y la contraseña:", error);
-            alert("Error al verificar el ID y la contraseña. Inténtalo de nuevo más tarde.");
-        }
+                for (const line of lines) {
+                    const [fileId, filePassword] = line.split(',');
+                    if (fileId === id && filePassword === key) {
+                        valid = true;
+                        break;
+                    }
+                }
+
+                if (valid) {
+                    keyContainer.style.display = "none";
+                    inicioContainer.style.display = "block";
+                } else {
+                    alert("🤬¡ID o contraseña incorrectos!〽️");
+                }
+            })
+            .catch(error => {
+                console.error("Error al leer registros.txt:", error);
+                alert("Error al verificar el ID y la contraseña. Inténtalo de nuevo más tarde.");
+            });
     });
 
+    // Formato del número de teléfono
     const telefonoInput = document.getElementById("telefono");
 
     telefonoInput.addEventListener("input", function(e) {
@@ -42,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
         e.target.value = formattedValue;
     });
 
+    // Manejo del formulario
     const formulario = document.getElementById("formulario");
     formulario.addEventListener("submit", function(event) {
         event.preventDefault();
