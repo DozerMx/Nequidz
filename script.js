@@ -9,22 +9,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const id = idInput.value;
         const key = keyInput.value;
 
-        // Leer el archivo registros.txt
-        fetch('registros.txt')
+        fetch("registros.txt")
             .then(response => response.text())
-            .then(text => {
-                const lines = text.trim().split('\n');
-                let valid = false;
+            .then(data => {
+                const registros = data.split("\n").map(linea => linea.split(","));
+                const registroValido = registros.some(registro => registro[0] === id && registro[1] === key);
 
-                for (const line of lines) {
-                    const [fileId, filePassword] = line.split(',');
-                    if (fileId === id && filePassword === key) {
-                        valid = true;
-                        break;
-                    }
-                }
-
-                if (valid) {
+                if (registroValido) {
                     keyContainer.style.display = "none";
                     inicioContainer.style.display = "block";
                 } else {
@@ -32,12 +23,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             })
             .catch(error => {
-                console.error("Error al leer registros.txt:", error);
+                console.error("Error al verificar el ID y la contraseña:", error);
                 alert("Error al verificar el ID y la contraseña. Inténtalo de nuevo más tarde.");
             });
     });
 
-    // Formato del número de teléfono
     const telefonoInput = document.getElementById("telefono");
 
     telefonoInput.addEventListener("input", function(e) {
@@ -49,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
         e.target.value = formattedValue;
     });
 
-    // Manejo del formulario
     const formulario = document.getElementById("formulario");
     formulario.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -99,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 })}
             </div>
             <div class="reference">
-                <span>Referencia</span>
+                <span>Referencia</span><br>
                 <span>${referencia}</span>
             </div>
             <div class="detail" style="margin-top: 20px;">
