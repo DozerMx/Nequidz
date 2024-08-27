@@ -1,0 +1,264 @@
+@font-face {
+    font-family: 'PF Encore Sans Pro Hairline';
+    src: url('PFEncoreSansPro-HairlineItalic.eot');
+    src: local('PFEncoreSansPro-HairlineItalic'),
+        url('PFEncoreSansPro-HairlineItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-HairlineItalic.woff2') format('woff2'),
+        url('PFEncoreSansPro-HairlineItalic.woff') format('woff'),
+        url('PFEncoreSansPro-HairlineItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro UltraBlack';
+    src: url('PFEncoreSansPro-UltraBlack.eot');
+    src: local('PFEncoreSansPro-UltraBlack'),
+        url('PFEncoreSansPro-UltraBlack.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-UltraBlack.woff2') format('woff2'),
+        url('PFEncoreSansPro-UltraBlack.woff') format('woff'),
+        url('PFEncoreSansPro-UltraBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro ExtraThin';
+    src: url('PFEncoreSansPro-ExtraThin.eot');
+    src: local('PFEncoreSansPro-ExtraThin'),
+        url('PFEncoreSansPro-ExtraThin.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-ExtraThin.woff2') format('woff2'),
+        url('PFEncoreSansPro-ExtraThin.woff') format('woff'),
+        url('PFEncoreSansPro-ExtraThin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-Thin.eot');
+    src: local('PFEncoreSansPro-Thin'),
+        url('PFEncoreSansPro-Thin.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-Thin.woff2') format('woff2'),
+        url('PFEncoreSansPro-Thin.woff') format('woff'),
+        url('PFEncoreSansPro-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro ExtraThin';
+    src: url('PFEncoreSansPro-ExtraThinItalic.eot');
+    src: local('PFEncoreSansPro-ExtraThinItalic'),
+        url('PFEncoreSansPro-ExtraThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-ExtraThinItalic.woff2') format('woff2'),
+        url('PFEncoreSansPro-ExtraThinItalic.woff') format('woff'),
+        url('PFEncoreSansPro-ExtraThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-Medium.eot');
+    src: local('PFEncoreSansPro-Medium'),
+        url('PFEncoreSansPro-Medium.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-Medium.woff2') format('woff2'),
+        url('PFEncoreSansPro-Medium.woff') format('woff'),
+        url('PFEncoreSansPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro UltraThin';
+    src: url('PFEncoreSansPro-UltraThin.eot');
+    src: local('PFEncoreSansPro-UltraThin'),
+        url('PFEncoreSansPro-UltraThin.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-UltraThin.woff2') format('woff2'),
+        url('PFEncoreSansPro-UltraThin.woff') format('woff'),
+        url('PFEncoreSansPro-UltraThin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro UltraBlack';
+    src: url('PFEncoreSansPro-UltraBlackItalic.eot');
+    src: local('PFEncoreSansPro-UltraBlackItalic'),
+        url('PFEncoreSansPro-UltraBlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-UltraBlackItalic.woff2') format('woff2'),
+        url('PFEncoreSansPro-UltraBlackItalic.woff') format('woff'),
+        url('PFEncoreSansPro-UltraBlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-BlackItalic.eot');
+    src: local('PFEncoreSansPro-BlackItalic'),
+        url('PFEncoreSansPro-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-BlackItalic.woff2') format('woff2'),
+        url('PFEncoreSansPro-BlackItalic.woff') format('woff'),
+        url('PFEncoreSansPro-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro UltraThin';
+    src: url('PFEncoreSansPro-UltraThinItalic.eot');
+    src: local('PFEncoreSansPro-UltraThinItalic'),
+        url('PFEncoreSansPro-UltraThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-UltraThinItalic.woff2') format('woff2'),
+        url('PFEncoreSansPro-UltraThinItalic.woff') format('woff'),
+        url('PFEncoreSansPro-UltraThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-MediumItalic.eot');
+    src: local('PFEncoreSansPro-MediumItalic'),
+        url('PFEncoreSansPro-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-MediumItalic.woff2') format('woff2'),
+        url('PFEncoreSansPro-MediumItalic.woff') format('woff'),
+        url('PFEncoreSansPro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro Hairline';
+    src: url('PFEncoreSansPro-Hairline.eot');
+    src: local('PFEncoreSansPro-Hairline'),
+        url('PFEncoreSansPro-Hairline.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-Hairline.woff2') format('woff2'),
+        url('PFEncoreSansPro-Hairline.woff') format('woff'),
+        url('PFEncoreSansPro-Hairline.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-Bold.eot');
+    src: local('PFEncoreSansPro-Bold'),
+        url('PFEncoreSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-Bold.woff2') format('woff2'),
+        url('PFEncoreSansPro-Bold.woff') format('woff'),
+        url('PFEncoreSansPro-Bold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-Regular.eot');
+    src: local('PFEncoreSansPro-Regular'),
+        url('PFEncoreSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-Regular.woff2') format('woff2'),
+        url('PFEncoreSansPro-Regular.woff') format('woff'),
+        url('PFEncoreSansPro-Regular.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-Black.eot');
+    src: local('PFEncoreSansPro-Black'),
+        url('PFEncoreSansPro-Black.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-Black.woff2') format('woff2'),
+        url('PFEncoreSansPro-Black.woff') format('woff'),
+        url('PFEncoreSansPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-BoldItalic.eot');
+    src: local('PFEncoreSansPro-BoldItalic'),
+        url('PFEncoreSansPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-BoldItalic.woff2') format('woff2'),
+        url('PFEncoreSansPro-BoldItalic.woff') format('woff'),
+        url('PFEncoreSansPro-BoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-LightItalic.eot');
+    src: local('PFEncoreSansPro-LightItalic'),
+        url('PFEncoreSansPro-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-LightItalic.woff2') format('woff2'),
+        url('PFEncoreSansPro-LightItalic.woff') format('woff'),
+        url('PFEncoreSansPro-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro Book';
+    src: url('PFEncoreSansPro-Book.eot');
+    src: local('PFEncoreSansPro-Book'),
+        url('PFEncoreSansPro-Book.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-Book.woff2') format('woff2'),
+        url('PFEncoreSansPro-Book.woff') format('woff'),
+        url('PFEncoreSansPro-Book.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-Light.eot');
+    src: local('PFEncoreSansPro-Light'),
+        url('PFEncoreSansPro-Light.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-Light.woff2') format('woff2'),
+        url('PFEncoreSansPro-Light.woff') format('woff'),
+        url('PFEncoreSansPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-Italic.eot');
+    src: local('PFEncoreSansPro-Italic'),
+        url('PFEncoreSansPro-Italic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-Italic.woff2') format('woff2'),
+        url('PFEncoreSansPro-Italic.woff') format('woff'),
+        url('PFEncoreSansPro-Italic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro Book';
+    src: url('PFEncoreSansPro-BookItalic.eot');
+    src: local('PFEncoreSansPro-BookItalic'),
+        url('PFEncoreSansPro-BookItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-BookItalic.woff2') format('woff2'),
+        url('PFEncoreSansPro-BookItalic.woff') format('woff'),
+        url('PFEncoreSansPro-BookItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Encore Sans Pro';
+    src: url('PFEncoreSansPro-ThinItalic.eot');
+    src: local('PFEncoreSansPro-ThinItalic'),
+        url('PFEncoreSansPro-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFEncoreSansPro-ThinItalic.woff2') format('woff2'),
+        url('PFEncoreSansPro-ThinItalic.woff') format('woff'),
+        url('PFEncoreSansPro-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
