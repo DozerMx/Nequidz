@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="admin.js" defer></script>
+</head>
+<body>
+    <div id="admin-menu">
+        <button id="admin-options-button">Opciones de Administrador</button>
+        <div id="admin-options" style="display: none;">
+            <button id="user-list-button">Mostrar Lista de Usuarios</button>
+            <button id="add-user-button">Añadir Usuario</button>
+            <div id="user-list-container" style="display: none;">
+                <ul id="user-list"></ul>
+            </div>
+            <div id="add-user-form" style="display: none;">
+                <form>
+                    <label for="new-id">ID:</label>
+                    <input type="text" id="new-id" required>
+                    <label for="new-password">Contraseña:</label>
+                    <input type="password" id="new-password" required>
+                    <button type="submit">Añadir Usuario</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
