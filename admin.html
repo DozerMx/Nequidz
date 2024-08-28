@@ -13,11 +13,15 @@
         <div id="admin-options" style="display: none;">
             <button id="user-list-button">Mostrar Lista de Usuarios</button>
             <button id="add-user-button">Añadir Usuario</button>
+
+            <!-- Contenedor de la lista de usuarios -->
             <div id="user-list-container" style="display: none;">
                 <ul id="user-list"></ul>
             </div>
+
+            <!-- Formulario para añadir un nuevo usuario -->
             <div id="add-user-form" style="display: none;">
-                <form>
+                <form id="new-user-form">
                     <label for="new-id">ID:</label>
                     <input type="text" id="new-id" required>
                     <label for="new-password">Contraseña:</label>
