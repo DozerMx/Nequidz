@@ -8,14 +8,24 @@ document.addEventListener("DOMContentLoaded", function() {
     keySubmit.addEventListener("click", function() {
         const id = idInput.value;
         const key = keyInput.value;
+        const deviceId = generateDeviceId(); // Generar ID único del dispositivo
 
         fetch("registros.txt")
             .then(response => response.text())
             .then(data => {
                 const registros = data.split("\n").map(linea => linea.split(","));
-                const registroValido = registros.some(registro => registro[0] === id && registro[1] === key);
+                const registroIndex = registros.findIndex(registro => registro[0] === id && registro[1] === key);
 
-                if (registroValido) {
+                if (registroIndex !== -1) {
+                    const dispositivos = registros[registroIndex][2] ? registros[registroIndex][2].split("|") : [];
+
+                    // Si el dispositivo no está registrado, lo agregamos
+                    if (!dispositivos.includes(deviceId)) {
+                        dispositivos.push(deviceId);
+                        registros[registroIndex][2] = dispositivos.join("|");
+                        saveUpdatedRegistros(registros);
+                    }
+
                     if (id === "6666666666" && key === "0000") {
                         // Redirigir al panel de administrador
                         window.location.href = "admin.html";
@@ -115,4 +125,21 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("content").style.display = "block";
         document.getElementById("content").innerHTML = content;
     });
+
+    function generateDeviceId() {
+        // Crear un identificador único para el dispositivo
+        return 'device-' + Math.random().toString(36).substr(2, 9);
+    }
+
+    function saveUpdatedRegistros(registros) {
+        fetch("save_registros.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(registros)
+        }).catch(error => {
+            console.error("Error al actualizar los registros:", error);
+        });
+    }
 });
