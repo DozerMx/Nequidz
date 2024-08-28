@@ -1,205 +1,190 @@
-/* Estilos generales */
+/* Estilos globales */
 body {
-    font-family: 'Roboto', sans-serif; /* Fuente por defecto */
-    background-color: #f7f7f7;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f0f0f0;
     color: #333;
-    overflow: hidden;
+    line-height: 1.6;
 }
 
-/* Contenedor principal */
 .container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-/* Imagen superior */
-.top-image {
-    position: relative;
-    right: 32px;
-    top: 20px;
-    width: 120%;
+    width: 90%;
     max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Contenido del comprobante */
-#content {
+    margin: 20px auto;
     background-color: #fff;
-    box-shadow: none;
-    border: none;
     padding: 20px;
-    margin: 0;
-    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Estilo para el contenedor de la clave */
+#key-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el contenedor de inicio */
+#inicio {
+    display: none;
+}
+
+/* Estilo para el contenedor de contenido */
+#content {
+    display: none;
+}
+
+/* Estilo para el formulario */
+#formulario {
+    margin-top: 20px;
+}
+
+input, button {
     width: 100%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    overflow: hidden;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
     box-sizing: border-box;
-    height: 800px;
 }
 
-.status {
-    margin-bottom: 10px;
+button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"], input[type="number"], input[type="password"] {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+input[type="submit"], button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para las secciones de detalles y referencia */
+.detail, .reference {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #4CAF50;
+}
+
+.detail span, .reference span {
     font-weight: bold;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.status img {
-    margin-left: -20px;
-}
-
-.detail {
-    margin-bottom: 10px;
-    color: #1c031d;
-    font-weight: 400;
-    font-family: 'PF Encore Sans Pro Regular', sans-serif; /* Aplicando fuente personalizada */
-}
-
-.detail span {
-    display: block;
-    font-weight: 400;
 }
 
 .reference {
-    margin-top: 20px;
-    padding-top: 10px;
-    color: #1c031d;
-    font-weight: 400;
-    font-family: 'PF Encore Sans Pro Medium', sans-serif; /* Aplicando fuente personalizada */
+    font-size: 1.2em;
+    text-align: center;
 }
 
+/* Estilos para la sección de saldo de cuenta */
 .account-balance {
-    background-color: transparent;
-    padding: 15px;
-    border-radius: 5px;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    width: 100%;
-    max-width: 400px;
-    height: 55px;
-    box-sizing: border-box;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
 }
 
 .account-balance img {
     width: 50px;
-    height: auto;
-    margin-right: 5px;
-    margin-left: -12px;
+    height: 50px;
+    margin-right: 10px;
 }
 
-.account-balancel {
-    margin-left: -1px;
+.account-balance .dispo {
+    font-size: 0.9em;
+    color: #555;
 }
 
 .account-balance .amount {
-    font-weight: 300;
-    display: block;
-    color: #707070;
-    font-size: 14px;
-    font-family: 'PF Encore Sans Pro UltraBlack', sans-serif; /* Aplicando fuente personalizada */
+    font-size: 1.6em;
+    color: #4CAF50;
 }
 
-.account-balance .amount small {
-    font-size: 0.8em;
-}
-
+/* Estilos para el enlace de problema con el movimiento */
 .problem-link {
     display: block;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 .problem-link img {
     max-width: 100%;
     height: auto;
-    display: inline-block;
-    margin-top: 30px;
+    border-radius: 5px;
 }
 
-/* Estilos para la página de login */
-.key-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Estilos para el menú de administrador */
+#admin-menu {
+    display: none;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    border-left: 5px solid #007BFF;
+}
+
+#admin-options {
+    display: none;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#admin-options a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#admin-options a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para la entrada de teléfono */
+input#telefono {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Estilos para la imagen de la parte superior */
+.top-image img {
     width: 100%;
     max-width: 400px;
+    display: block;
     margin: 0 auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-top: 300px;
-}
-
-.key-container h2 {
     margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-    text-align: center;
-    font-family: 'PF Encore Sans Pro UltraBlack', sans-serif; /* Aplicando fuente personalizada */
 }
 
-.key-container input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
-    font-size: 16px;
-    font-family: 'PF Encore Sans Pro Regular', sans-serif; /* Aplicando fuente personalizada */
-}
-
-.key-container button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    max-width: 300px;
-    font-family: 'PF Encore Sans Pro Medium', sans-serif; /* Aplicando fuente personalizada */
-}
-
-.key-container button:hover {
-    background-color: #0056b3;
-}
-
-.key-container p {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #555;
-    text-align: center;
-}
-
-/* Estilo de la etiqueta "¿De dónde salió la plata?" */
-.plata-label {
-    color: #707070;
-    font-weight: 400;
-    margin-top: 17px;
-}
-
-.dispo {
-    margin-left: -1px;
+/* Estilos para el contenedor de actividad */
+#actividad-container {
+    display: none;
 }

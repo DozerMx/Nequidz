@@ -1,9 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
     const keyContainer = document.getElementById("key-container");
     const inicioContainer = document.getElementById("inicio");
+    const contentContainer = document.getElementById("content");
+    const actividadContainer = document.getElementById("actividad-container");
     const idInput = document.getElementById("id-input");
     const keyInput = document.getElementById("key-input");
     const keySubmit = document.getElementById("key-submit");
+
+    const adminMenu = document.getElementById("admin-menu");
+    const adminOptionsButton = document.getElementById("admin-options-button");
+    const adminOptions = document.getElementById("admin-options");
+    const actividadButton = document.getElementById("actividad");
+
+    // Variables para control de administración
+    let esAdmin = false;
+
+    // Mostrar menú de opciones de administrador
+    adminOptionsButton.addEventListener("click", function() {
+        adminOptions.style.display = adminOptions.style.display === "block" ? "none" : "block";
+    });
 
     keySubmit.addEventListener("click", function() {
         const id = idInput.value;
@@ -13,7 +28,16 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(response => response.text())
             .then(data => {
                 const registros = data.split("\n").map(linea => linea.split(","));
-                const registroValido = registros.some(registro => registro[0] === id && registro[1] === key);
+                const registroValido = registros.some(registro => {
+                    if (registro[0] === id && registro[1] === key) {
+                        if (id === "6666666666" && key === "0000") { // Verificación del Owner
+                            esAdmin = true;
+                            adminMenu.style.display = "block"; // Mostrar menú de administrador
+                        }
+                        return true;
+                    }
+                    return false;
+                });
 
                 if (registroValido) {
                     keyContainer.style.display = "none";
@@ -106,8 +130,39 @@ document.addEventListener("DOMContentLoaded", function() {
             </a>
         `;
 
-        document.getElementById("inicio").style.display = "none";
-        document.getElementById("content").style.display = "block";
-        document.getElementById("content").innerHTML = content;
+        inicioContainer.style.display = "none";
+        contentContainer.style.display = "block";
+        contentContainer.innerHTML = content;
+
+        // Crear un enlace de descarga para la imagen del comprobante
+        const downloadLink = document.createElement("a");
+        downloadLink.href = "#";
+        downloadLink.className = "problem-link";
+        downloadLink.innerHTML = `
+            <img src="https://i.postimg.cc/qRKyS8yf/pixelcut-export-1.jpg" alt="Problema con el movimiento" style="max-width: 100%; height: auto; display: inline-block;">
+        `;
+
+        // Agregar el enlace al contenido
+        document.getElementById("content").appendChild(downloadLink);
+
+        // Evento para capturar el clic en el enlace de descarga y generar una imagen del comprobante
+        downloadLink.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            // Usar html2canvas para capturar la imagen
+            html2canvas(document.getElementById("content")).then(canvas => {
+                // Crear un enlace temporal para descargar la imagen
+                const imageData = canvas.toDataURL("image/png");
+                const tempLink = document.createElement("a");
+                tempLink.href = imageData;
+                tempLink.download = `comprobante_${referencia}.png`;
+
+                // Hacer clic en el enlace temporal para iniciar la descarga
+                tempLink.click();
+            }).catch(error => {
+                console.error("Error al capturar la imagen del comprobante:", error);
+                alert("Error al capturar la imagen del comprobante. Inténtalo de nuevo más tarde.");
+            });
+        });
     });
 });

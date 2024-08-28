@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del Movimiento</title>
-    <!-- Vinculación a los archivos de estilo CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="fondo.css">
-    <!-- Vinculación a Google Fonts y fuentes locales -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Vinculación al archivo CSS externo -->
+    <link rel="stylesheet" href="fondo.css"> <!-- Vinculación al archivo CSS para el fondo -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> <!-- Vinculación a Google Fonts -->
 </head>
 <body>
     <div class="key-container" id="key-container">
@@ -19,6 +16,14 @@
         <label for="key-input">Contraseña:</label>
         <input type="password" id="key-input" placeholder="Introduce la clave" />
         <button id="key-submit">Acceder</button>
+    </div>
+
+    <!-- Menú de Administrador -->
+    <div class="admin-menu" id="admin-menu" style="display: none;">
+        <button id="admin-options-button">☰</button>
+        <div id="admin-options" style="display: none;">
+            <button id="actividad">Actividad</button>
+        </div>
     </div>
 
     <div class="container" id="inicio" style="display: none;">
@@ -41,6 +46,14 @@
         <!-- Aquí se generará el comprobante -->
         <div class="generar-comprobante">
             <!-- Contenido de la página para generar el comprobante -->
+        </div>
+    </div>
+
+    <!-- Página de Actividad (solo para administradores) -->
+    <div class="container" id="actividad-container" style="display: none;">
+        <h2>Actividad de Usuarios</h2>
+        <div id="user-list">
+            <!-- Aquí se generará la lista de usuarios -->
         </div>
     </div>
 
