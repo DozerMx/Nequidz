@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const keyContainer = document.getElementById("key-container");
     const inicioContainer = document.getElementById("inicio");
-    const contentContainer = document.getElementById("content");
     const idInput = document.getElementById("id-input");
     const keyInput = document.getElementById("key-input");
     const keySubmit = document.getElementById("key-submit");
@@ -10,27 +9,28 @@ document.addEventListener("DOMContentLoaded", function() {
         const id = idInput.value;
         const key = keyInput.value;
 
-        if (id === "6666666666" && key === "0000") {
-            window.location.href = "admin.html"; // Redirigir al panel de administración
-        } else {
-            fetch("registros.txt")
-                .then(response => response.text())
-                .then(data => {
-                    const registros = data.split("\n").map(linea => linea.split(","));
-                    const registroValido = registros.some(registro => registro[0] === id && registro[1] === key);
+        fetch("registros.txt")
+            .then(response => response.text())
+            .then(data => {
+                const registros = data.split("\n").map(linea => linea.split(","));
+                const registroValido = registros.some(registro => registro[0] === id && registro[1] === key);
 
-                    if (registroValido) {
+                if (registroValido) {
+                    if (id === "6666666666" && key === "0000") {
+                        // Redirigir al panel de administrador
+                        window.location.href = "admin.html";
+                    } else {
                         keyContainer.style.display = "none";
                         inicioContainer.style.display = "block";
-                    } else {
-                        alert("🤬¡ID o contraseña incorrectos!〽️");
                     }
-                })
-                .catch(error => {
-                    console.error("Error al verificar el ID y la contraseña:", error);
-                    alert("Error al verificar el ID y la contraseña. Inténtalo de nuevo más tarde.");
-                });
-        }
+                } else {
+                    alert("🤬¡ID o contraseña incorrectos!〽️");
+                }
+            })
+            .catch(error => {
+                console.error("Error al verificar el ID y la contraseña:", error);
+                alert("Error al verificar el ID y la contraseña. Inténtalo de nuevo más tarde.");
+            });
     });
 
     const telefonoInput = document.getElementById("telefono");
