@@ -1,0 +1,97 @@
+/* admin.css */
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Contenedor del menú de administración */
+#admin-menu {
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Botón de opciones de administrador */
+#admin-options-button {
+    background-color: #444;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Opciones de administrador */
+#admin-options {
+    margin-top: 10px;
+}
+
+/* Botones dentro del panel de administración */
+#admin-options button {
+    background-color: #555;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Estilos del contenedor de la lista de usuarios */
+#user-list-container {
+    margin-top: 20px;
+}
+
+/* Lista de usuarios */
+#user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#user-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilos del formulario de añadir usuario */
+#add-user-form {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#add-user-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#add-user-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#add-user-form input {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#add-user-form button {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#add-user-form button:hover {
+    background-color: #218838;
+}
