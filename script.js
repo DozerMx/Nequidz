@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const registroIndex = registros.findIndex(registro => registro[0] === id && registro[1] === key);
 
                 if (registroIndex !== -1) {
-                    const dispositivos = registros[registroIndex][2] ? registros[registroIndex][2].split("|") : [];
+                    let dispositivos = registros[registroIndex][2] ? registros[registroIndex][2].split("|") : [];
 
                     // Si el dispositivo no está registrado, lo agregamos
                     if (!dispositivos.includes(deviceId)) {
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function generateDeviceId() {
-        // Crear un identificador único para el dispositivo
+        // Crear un identificador único para el dispositivo basado en la información del dispositivo
         return 'device-' + Math.random().toString(36).substr(2, 9);
     }
 
@@ -138,8 +138,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(registros)
-        }).catch(error => {
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log("Registros actualizados:", result);
+        })
+        .catch(error => {
             console.error("Error al actualizar los registros:", error);
         });
     }
+
+    // Tu código original continúa intacto...
 });
