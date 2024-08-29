@@ -2,41 +2,37 @@
 // Ruta al archivo de registros
 $archivoRegistros = 'registros.txt';
 
-// Verifica si se han enviado los registros actualizados mediante POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Lee los registros enviados en formato JSON
-    $registrosJson = file_get_contents('php://input');
+// Verifica si se ha enviado un nuevo usuario mediante POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_user'])) {
+    $nuevoUsuario = trim($_POST['new_user']);
+    list($id, $nombre, $dispositivo) = explode(',', $nuevoUsuario);
+
+    $contenidoActual = file_get_contents($archivoRegistros);
+    $lineas = explode("\n", trim($contenidoActual));
     
-    // Decodifica los registros JSON a un arreglo PHP
-    $registros = json_decode($registrosJson, true);
+    $usuarioExiste = false;
+    $contenidoActualizado = "";
 
-    if (json_last_error() === JSON_ERROR_NONE) {
-        // Abre el archivo en modo de escritura (sobrescribe el contenido)
-        $archivo = fopen($archivoRegistros, 'w');
-
-        if ($archivo) {
-            // Recorre los registros y escribe cada uno en el archivo
-            foreach ($registros as $registro) {
-                $linea = implode(',', $registro) . "\n";
-                fwrite($archivo, $linea);
-            }
-
-            fclose($archivo);
-
-            // Respuesta exitosa
-            echo "success";
+    foreach ($lineas as $linea) {
+        if (strpos($linea, "$id,") === 0) {
+            $usuarioExiste = true;
+            $contenidoActualizado .= "$id,$nombre,$dispositivo\n";  // Actualizar dispositivo
         } else {
-            // Error al abrir el archivo
-            http_response_code(500);
-            echo "error";
+            $contenidoActualizado .= "$linea\n";
         }
+    }
+
+    if (!$usuarioExiste) {
+        $contenidoActualizado .= "$nuevoUsuario\n";
+    }
+
+    if (file_put_contents($archivoRegistros, $contenidoActualizado)) {
+        echo "success";
     } else {
-        // Error en el formato JSON
-        http_response_code(400);
-        echo "Invalid JSON format";
+        http_response_code(500);
+        echo "error";
     }
 } else {
-    // Respuesta en caso de que no se envíen datos correctamente
     http_response_code(400);
     echo "Invalid request";
 }
