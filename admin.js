@@ -22,10 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 lista.innerHTML = ""; // Limpiar lista antes de cargar nuevos datos
 
                 registros.forEach(registro => {
-                    const [id, nombre, dispositivos] = registro.split(",");
-                    const dispositivosCount = dispositivos ? dispositivos.split("|").length : 0;
+                    const [id, nombre, dispositivo] = registro.split(",");
                     const li = document.createElement("li");
-                    li.textContent = `ID: ${id}, Nombre: ${nombre}, Dispositivos: ${dispositivosCount || "Ninguno"}`;
+                    li.textContent = `ID: ${id}, Nombre: ${nombre}, Dispositivo: ${dispositivo || "Ninguno"}`;
                     lista.appendChild(li);
                 });
             })
