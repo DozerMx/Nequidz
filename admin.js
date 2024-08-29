@@ -1,17 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
     const adminOptionsButton = document.getElementById("admin-options-button");
     const adminOptions = document.getElementById("admin-options");
+    const userListButton = document.getElementById("user-list-button");
     const userListContainer = document.getElementById("user-list-container");
+    const addUserButton = document.getElementById("add-user-button");
     const addUserForm = document.getElementById("add-user-form");
+    const newUserForm = document.getElementById("new-user-form");
 
     // Mostrar/ocultar el panel de opciones de administración
     adminOptionsButton.addEventListener("click", function() {
         adminOptions.style.display = adminOptions.style.display === "block" ? "none" : "block";
     });
 
-    // Cargar la lista de usuarios desde un archivo
+    // Cargar la lista de usuarios y dispositivos desde registros.txt
     function cargarListaUsuarios() {
-        fetch("usuarios.txt")
+        fetch("registros.txt")
             .then(response => response.text())
             .then(data => {
                 const usuarios = data.split("\n").map(linea => linea.trim()).filter(linea => linea);
@@ -19,8 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 lista.innerHTML = ""; // Limpiar lista antes de cargar nuevos datos
 
                 usuarios.forEach(usuario => {
+                    const [id, nombre, dispositivos] = usuario.split(",");
                     const li = document.createElement("li");
-                    li.textContent = usuario;
+                    li.textContent = `ID: ${id}, Nombre: ${nombre}, Dispositivos: ${dispositivos || "Ninguno"}`;
                     lista.appendChild(li);
                 });
             })
@@ -29,44 +33,54 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
-    // Mostrar la lista de usuarios
-    if (userListContainer) {
-        cargarListaUsuarios();
-    }
+    // Mostrar la lista de usuarios cuando se hace clic en el botón correspondiente
+    userListButton.addEventListener("click", function() {
+        userListContainer.style.display = userListContainer.style.display === "block" ? "none" : "block";
+        if (userListContainer.style.display === "block") {
+            cargarListaUsuarios();
+        }
+    });
+
+    // Mostrar/ocultar el formulario para añadir usuario
+    addUserButton.addEventListener("click", function() {
+        addUserForm.style.display = addUserForm.style.display === "block" ? "none" : "block";
+    });
 
     // Añadir un nuevo usuario
-    if (addUserForm) {
-        addUserForm.addEventListener("submit", function(event) {
+    if (newUserForm) {
+        newUserForm.addEventListener("submit", function(event) {
             event.preventDefault();
 
-            const idInput = document.getElementById("id-input");
-            const nombreInput = document.getElementById("nombre-input");
-            const claveInput = document.getElementById("clave-input");
+            const idInput = document.getElementById("new-id");
+            const claveInput = document.getElementById("new-password");
 
             const id = idInput.value.trim();
-            const nombre = nombreInput.value.trim();
             const clave = claveInput.value.trim();
 
-            if (id && nombre && clave) {
-                const nuevoUsuario = `${id},${nombre},${clave}`;
-                
-                // Enviar el nuevo usuario a un servidor o archivo
-                fetch("guardar_usuario.php", {
+            if (id && clave) {
+                const nuevoUsuario = `${id},${clave}`;
+
+                // Enviar el nuevo usuario al servidor para guardarlo
+                fetch("save_user.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
                     },
                     body: new URLSearchParams({
-                        usuario: nuevoUsuario
+                        new_user: nuevoUsuario
                     })
                 })
                 .then(response => response.text())
                 .then(result => {
-                    alert("Usuario añadido con éxito.");
-                    idInput.value = "";
-                    nombreInput.value = "";
-                    claveInput.value = "";
-                    cargarListaUsuarios(); // Recargar lista después de añadir
+                    if (result === "success") {
+                        alert("Usuario añadido con éxito.");
+                        idInput.value = "";
+                        claveInput.value = "";
+                        cargarListaUsuarios(); // Recargar lista después de añadir
+                        addUserForm.style.display = "none";
+                    } else {
+                        alert("Hubo un problema al añadir el usuario. Intenta de nuevo.");
+                    }
                 })
                 .catch(error => {
                     console.error("Error al añadir el usuario:", error);
