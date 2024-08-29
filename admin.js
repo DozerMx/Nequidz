@@ -17,14 +17,15 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch("registros.txt")
             .then(response => response.text())
             .then(data => {
-                const usuarios = data.split("\n").map(linea => linea.trim()).filter(linea => linea);
+                const registros = data.split("\n").map(linea => linea.trim()).filter(linea => linea);
                 const lista = document.getElementById("user-list");
                 lista.innerHTML = ""; // Limpiar lista antes de cargar nuevos datos
 
-                usuarios.forEach(usuario => {
-                    const [id, nombre, dispositivos] = usuario.split(",");
+                registros.forEach(registro => {
+                    const [id, nombre, dispositivos] = registro.split(",");
+                    const dispositivosCount = dispositivos ? dispositivos.split("|").length : 0;
                     const li = document.createElement("li");
-                    li.textContent = `ID: ${id}, Nombre: ${nombre}, Dispositivos: ${dispositivos || "Ninguno"}`;
+                    li.textContent = `ID: ${id}, Nombre: ${nombre}, Dispositivos: ${dispositivosCount || "Ninguno"}`;
                     lista.appendChild(li);
                 });
             })
@@ -52,13 +53,15 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault();
 
             const idInput = document.getElementById("new-id");
+            const nombreInput = document.getElementById("new-nombre");
             const claveInput = document.getElementById("new-password");
 
             const id = idInput.value.trim();
+            const nombre = nombreInput.value.trim();
             const clave = claveInput.value.trim();
 
-            if (id && clave) {
-                const nuevoUsuario = `${id},${clave}`;
+            if (id && nombre && clave) {
+                const nuevoUsuario = `${id},${nombre},`;
 
                 // Enviar el nuevo usuario al servidor para guardarlo
                 fetch("save_user.php", {
@@ -75,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (result === "success") {
                         alert("Usuario añadido con éxito.");
                         idInput.value = "";
+                        nombreInput.value = "";
                         claveInput.value = "";
                         cargarListaUsuarios(); // Recargar lista después de añadir
                         addUserForm.style.display = "none";
